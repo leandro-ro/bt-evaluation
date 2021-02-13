@@ -1,0 +1,18 @@
+pragma cashscript ^0.5.0;
+
+contract lockingTx(bytes20 pkhCreator, bytes20 pkhBuyer) {
+    // Require pk to match stored pkh and signature to match
+    function unlock(pubkey pkCreator, sig sigCreator) {
+        require(tx.time >=  1434010);
+        require(hash160(pkCreator) == pkhCreator);
+        require(checkSig(sigCreator, pkCreator));
+    }
+
+    function useForRefund(pubkey pkCreator, sig sigCreator, pubkey pkBuyer, sig sigBuyer) {
+        require(hash160(pkCreator) == pkhCreator);
+        require(checkSig(sigCreator, pkCreator));
+
+        require(hash160(pkBuyer) == pkhBuyer);
+        require(checkSig(sigBuyer, pkBuyer));
+    }
+}

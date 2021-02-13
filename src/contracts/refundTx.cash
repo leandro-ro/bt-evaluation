@@ -1,0 +1,21 @@
+pragma cashscript ^0.5.0;
+
+contract refundTx(bytes20 pkCreatorHash, bytes20 pkReceiverHash, bytes32 kCommit, string index, bytes encryptedX, bytes32 hashedX) {
+
+    function claim(pubkey receiverPk, sig receiverSig, string key) {
+        require(sha256(key) == kCommit);
+        // Note that XOR is only possible if done with values of same length:
+        require(sha256(bytes(sha256(key + index)).split(encryptedX.length)[0] ^ bytes(encryptedX)) != hashedX);
+
+        // Check receiver signature
+        require(hash160(receiverPk) == pkReceiverHash);
+        require(checkSig(receiverSig, receiverPk));
+    }
+
+    function revert(pubkey pkCreator, sig sigCreator) {
+            require(tx.time >= 1434000);
+            require(hash160(pkCreator) == pkCreatorHash);
+            require(checkSig(sigCreator, pkCreator));
+    }
+
+}

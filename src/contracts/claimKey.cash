@@ -1,0 +1,17 @@
+pragma cashscript ^0.5.0;
+
+contract claimKey(bytes20 pkhChallenger, bytes20 pkhSolver, bytes32 keyHash) {
+
+    function reclaim(pubkey pkChallenger, sig sigChallenger) {
+        require(tx.time >= 1434000);
+        require(hash160(pkChallenger) == pkhChallenger);
+        require(checkSig(sigChallenger, pkChallenger));
+    }
+
+    function solve(pubkey pkSolver, sig sigSolver, string key) {
+        require(hash160(pkSolver) == pkhSolver);
+        require(checkSig(sigSolver, pkSolver));
+
+        require(sha256(key) == keyHash);
+    }
+}
