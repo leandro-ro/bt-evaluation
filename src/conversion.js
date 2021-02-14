@@ -1,4 +1,4 @@
-// By Leandro Rometsch - 24.01.2020
+// By Leandro Rometsch - 24.01.2021
 // Bachelor Thesis: Fair Exchange Protocol Over Bitcoin
 
 module.exports = {hexStringToBinary, binaryToHexString, hexToBytes, binToHex, decToBin}

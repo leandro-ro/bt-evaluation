@@ -1,8 +1,9 @@
-// By Leandro Rometsch - 12.01.2020
+// By Leandro Rometsch - 12.01.2021
 // Bachelor Thesis: Fair Exchange Protocol Over Bitcoin
 // Simple xor cipher of a byte string and a key (decoded in hex)
 // Disclaimer: The following encryption scheme is most probably not secure.
 // Used only for testing purposes
+
 const conv = require("./conversion");
 
 module.exports = {crypt};

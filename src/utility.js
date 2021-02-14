@@ -1,4 +1,4 @@
-// By Leandro Rometsch - 21.01.2020
+// By Leandro Rometsch - 21.01.2021
 // Bachelor Thesis: Fair Exchange Protocol Over Bitcoin
 
 const { Contract, CashCompiler, ElectrumNetworkProvider, SignatureTemplate } = require('cashscript');
@@ -9,7 +9,20 @@ const hashFunctions = require('js-sha256')
 const conv = require("./conversion");
 const xor = require("./xor");
 
-module.exports = {encode, decode, bitcoreCompatibleSHA256, genSetOfRefundTx, genClaimKeyContract, genLockingContract, genRandomHexString, genRandomString}
+module.exports = {
+    encode,
+    decode,
+    bitcoreCompatibleSHA256,
+    genSetOfRefundTx,
+    genClaimKeyContract,
+    genLockingContract,
+    genRandomHexString,
+    genRandomString,
+    estimateCosts,
+    calcTxCost,
+    calcTxByteSize,
+    sleep
+}
 
 const provider = new ElectrumNetworkProvider('testnet')
 
@@ -117,4 +130,24 @@ function genRandomString(length) {
     }
 
     return str;
+}
+
+// Calculates the actual costs of a published transaction tx
+function calcTxCost(tx, costPerByte) {
+    return Math.ceil(calcTxByteSize(tx) * costPerByte);
+}
+
+// Determines the size of a sent transaction in bytes
+function calcTxByteSize(tx) {
+    return tx.hex.length/2;
+}
+
+// Estimates the maximum costs of a compiled transaction (.build())
+function estimateCosts(tx, costPerByte) {
+    return Math.ceil((Math.ceil(tx.length/2) - 32) * costPerByte)
+}
+
+// Stops the execution for ms milliseconds
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
