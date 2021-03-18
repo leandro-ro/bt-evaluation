@@ -13,7 +13,7 @@ const { caseFive } = require("./cases/case_05");
 // The example data is a <CHUNKS>-tuple of hex strings of constant length <CHUNKSIZE> which is always dividable by two and < 32
 const CHUNKS = 4; // Minimum 2. Use power of two
 const CHUNKSIZE = 1; // In Bytes. Minimum 1 - Maximum 32 (here technically limited by SHA256 Hash of key through symmetric XOR encryption)
-const KEYSIZE = 16; // Number of chars. Minimum 1  (e.g. 16 -> 16 chars -> 32 Bytes -> 256 bit key)
+const KEYSIZE = 1; // Number of chars. Minimum 1  (e.g. 16 -> 16 chars -> 32 Bytes -> 256 bit key)
 const PRICE = 2000; // min 2000
 const TXCOSTPERBYTE = 1.008 // sat per byte
 
@@ -48,9 +48,10 @@ let honestSetOfRefundTx = util.genSetOfRefundTx(wallet.alice.publicKeyHash,
     exampleData.map(x => util.bitcoreCompatibleSHA256(x)));
 
 
+// Uncomment one of the five scenarios and run this file. You may change one of the capitalized parameters above.
 
-//optimisticCase(encoded, key, PRICE, TXCOSTPERBYTE)
+optimisticCase(encoded, key, PRICE, TXCOSTPERBYTE)
 //caseTwo(encoded, key, PRICE, TXCOSTPERBYTE)
 //caseThree(encoded, key, wrongKey, maliciousSetOfRefundTx, PRICE, TXCOSTPERBYTE)
 //caseFour(PRICE, TXCOSTPERBYTE)
-caseFive(honestSetOfRefundTx, key, PRICE, TXCOSTPERBYTE)
+//caseFive(honestSetOfRefundTx, key, PRICE, TXCOSTPERBYTE)

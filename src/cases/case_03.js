@@ -1,6 +1,6 @@
 // By Leandro Rometsch - 09.02.2021
 // Bachelor Thesis: Fair Exchange Protocol Over Bitcoin
-// Case 3: Seller aborts/malicious
+// Scenario 3: Seller malicious
 // -> Alice provides manipulated data. Therefore Bob issues a refund.
 
 const {Contract, CashCompiler, ElectrumNetworkProvider} = require('cashscript');

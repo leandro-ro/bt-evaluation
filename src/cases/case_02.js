@@ -1,6 +1,6 @@
 // By Leandro Rometsch - 09.02.2021
 // Bachelor Thesis: Fair Exchange Protocol Over Bitcoin
-// Case 2: Seller aborts/malicious
+// Scenario 2: Seller aborts
 // ->  Alice does not provide the key, therefore Bob reclaims his Key Exchange Transaction
 
 const {Contract, CashCompiler, ElectrumNetworkProvider} = require('cashscript');

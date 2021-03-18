@@ -1,6 +1,6 @@
 // By Leandro Rometsch - 09.02.2021
 // Bachelor Thesis: Fair Exchange Protocol Over Bitcoin
-// Case 4: Buyer aborts/malicious
+// Scenario 4: Buyer aborts
 // -> Bob does not publish the Key Exchange Tx
 
 const {Contract, CashCompiler, ElectrumNetworkProvider} = require('cashscript');

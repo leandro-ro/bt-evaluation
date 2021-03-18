@@ -1,6 +1,6 @@
 // By Leandro Rometsch - 09.02.2021
 // Bachelor Thesis: Fair Exchange Protocol Over Bitcoin
-// Case 5: Buyer aborts/malicious
+// Scenario 5: Buyer malicious
 // -> Bob does not publish a Key Exchange Transaction & publishes one Refund Transaction
 
 const {Contract, CashCompiler, ElectrumNetworkProvider} = require('cashscript');

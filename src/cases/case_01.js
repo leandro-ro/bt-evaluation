@@ -1,6 +1,6 @@
 // By Leandro Rometsch - 09.02.2021
 // Bachelor Thesis: Fair Exchange Protocol Over Bitcoin
-// Case 1: Optimistic Case
+// Scenario 1: The Optimistic Case
 // -> Alice provides the key to unlock the Key Exchange Transaction and reclaims the locked coins inside the Locking Transaction
 
 const {Contract, CashCompiler, ElectrumNetworkProvider} = require('cashscript');
