@@ -1,6 +1,7 @@
 // By Leandro Rometsch - 09.02.2021
 // Bachelor Thesis: Fair Exchange Protocol Over Bitcoin
-// Cases based on https://www.notion.so/Transaction-Costs-15b2330a92084a32a29b17e681b2f1c4
+// Cases based on https://github.com/leandro-ro/bt-evaluation/blob/main/graphics/transaction_flow.pdf
+
 const util = require("./utility");
 const wallet = require("./wallet")
 const { optimisticCase } = require("./cases/case_01");
