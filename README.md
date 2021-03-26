@@ -11,3 +11,5 @@ The following instructions work on macOS with the WebStrom IDE. It should be sim
 3. Right-click on evaluation.js and click on "run". This should run the optimistic case. (If this doesn't work, the IDE did not set the configuration environment automatically, and you will need to specify a new one that uses the node.js interpreter)
 
 Once this works, you can select the different cases by commenting and uncommenting lines 54 - 58 in evaluation.js and run again. Note that you can also change the protocol parameters (lines 15-19) in the given frame. Please only execute one case at a time. Otherwise, you might run into problems. After some time, adding new testnet Bitcoin Cash to Alice's and Bob's wallets might be necessary. At the beginning of each execution, their wallet balance is printed.
+
+If you run into any problems, feel fee to contact me via leandro@rometsch.org
